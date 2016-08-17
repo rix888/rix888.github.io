@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>No Title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Graduate|Montserrat';
+
+body {
+    background-image: url('guitar-1362203_1280.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#fb, #twitter, #medium, #instagram {
+  transition: transform 0.2s linear;
+}
+
+#fb:hover, #twitter:hover, #medium:hover, #instagram:hover {
+  transform: translateY(-10px);
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #2c3840;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #f5f5f5 !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #2c3840 !important;
+    background-color: #5b7187 !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #f5f5f5 !important;
+}
+
+.jumbotron {
+    background-color: transparent;
+    /*color: #f5f5f5;*/
+    padding: 80px 25px 40px 25px;
+    /*font-family: 'Montserrat', sans-serif;*/
+}
+
+.jumbotron:nth-child(odd) {
+    background-color: #f5f5f5;
+    border-radius: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#unique {
+  font-family: 'Montserrat', cursive;
+  color: #2c3840;
+}
+
+/* responsive text queries */
+@media screen and (max-width: 992px) {
+  p,.btn,input,div,span,h4 {
+    font-size: 95%;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  p,.btn,input,div,span,h4 {
+    font-size: 90%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+
+  #push-to-bottom {
+      color: black;
+      text-shadow: white 1px 1px 1px !important;
+      /*position: inherit;*/
+
+      /*left: 50%;
+      margin-left: -100px;*/
+      padding-bottom: 20px !important;
+  }
+}
+
+  /*.hideme {
+  opacity:0;
+  }*/
+
+</style>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Logo</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="artist.html">NAV 1</a></li>
+          <li><a href="merchandise.html">NAV 2</a></li>
+          <li><a href="blog.html">NAV 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="jumbotron text-center">
+  <div class="row">
+
+      <a href="#" class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="fb"><img class="img-responsive social-buttons" src="facebook color.1.svg" alt="Facebook logo" style="width:100px; height:100px; "></a>
+      <a href="#" class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="twitter"><img class="img-responsive social-buttons" src="twitter color.1.svg" alt="Twitter logo" style="width:100px; height:100px;"></a>
+      <a href="#" class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="medium"><img class="img-responsive social-buttons" src="medium color.1.svg" alt="Medium logo" style="width:100px; height:100px;"></a>
+      <a href="#" class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="instagram"><img class="img-responsive social-buttons" src="instagram color.1.svg" alt="Instagram logo" style="width:100px; height:100px;"></a>
+
+    <!-- <div class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="fb"><img class="img-responsive" src="facebook black.1.svg" onmouseover="this.src='facebook color.1.svg'" onmouseout="this.src='facebook black.1.svg'" alt="Facebook logo" style="width:100px; height:100px; "></div>
+    <div class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="twitter"><img class="img-responsive" src="twitter black.1.svg" onmouseover="this.src='twitter color.1.svg'" onmouseout="this.src='twitter black.1.svg'" alt="Twitter logo" style="width:100px; height:100px;"></div>
+    <div class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="youtube"><img class="img-responsive" src="medium black.1.svg" onmouseover="this.src='medium color.1.svg'" onmouseout="this.src='medium black.1.svg'"alt="YouTube logo" style="width:100px; height:100px;"></div>
+    <div class="col-xs-3 col-sm-3 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" id="instagram"><img class="img-responsive" src="instagram black.1.svg" onmouseover="this.src='instagram color.1.svg'" onmouseout="this.src='instagram black.1.svg'" alt="Instagram logo" style="width:100px; height:100px;"></div> -->
+  </div>
+</div>
+
+<h1 class="text-center" id="unique">What makes this collective unique?</h1>
+
+<div class = "container">
+   <div class = "jumbotron hideme">
+      <h3>What's cool about the artist?</h3>
+      <p>
+         <a class = "btn btn-primary btn-lg" role = "button">Go to Artist</a>
+      </p>
+   </div>
+</div>
+
+<br>
+
+<div class = "container">
+   <div class = "jumbotron hideme">
+      <h3>What's special about the merchandise?</h3>
+      <p>
+         <a class = "btn btn-primary btn-lg" role = "button">Go to Merchandise</a>
+      </p>
+   </div>
+</div>
+
+<p class="text-center" id="push-to-bottom">Contact / Label information &copy; <style> color: white; text-shadow: 2px 2px 4px #000000; </style> </p>
+
+
+  <script>
+  $(document).ready(function(){
+    // Add smooth scrolling to all links in navbar + footer link
+    $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+
+    $(window).scroll(function() {
+      $(".slideanim").each(function(){
+        var pos = $(this).offset().top;
+
+        var winTop = $(window).scrollTop();
+          if (pos < winTop + 600) {
+            $(this).addClass("slide");
+          }
+      });
+    });
+
+    // $(document).ready(function() {
+    //
+    // /* Every time the window is scrolled ... */
+    // $(window).scroll( function(){
+    //
+    //     /* Check the location of each desired element */
+    //     $('.hideme').each( function(i){
+    //
+    //         var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+    //         var bottom_of_window = $(window).scrollTop() + $(window).height();
+    //
+    //         /* If the object is completely visible in the window, fade it it */
+    //         if( bottom_of_window > bottom_of_object ){
+    //
+    //             $(this).animate({'opacity':'1'},500);
+    //         }
+    //     });
+    //   });
+    // });
+  })
+  </script>
+
+</body>
+
+</html>

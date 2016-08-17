@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Christian Tello</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Graduate|Montserrat';
+
+body {
+    background-image: url('guitar-759353_1280.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #2c3840;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #f5f5f5 !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #2c3840 !important;
+    background-color: #5b7187 !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #f5f5f5 !important;
+}
+
+/* responsive text queries */
+@media screen and (max-width: 992px) {
+  p,.btn,input,div,span,h4 {
+    font-size: 95%;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  p,.btn,input,div,span,h4 {
+    font-size: 90%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+}
+
+
+.warning {
+  margin: 10px auto 0;
+  width: 500px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#scroller {
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 50px 0;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  -o-perspective: 500px;
+}
+
+#scroller .item {
+  width: 500px;
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.85, transparent), to(rgba(255,255,255,0.15)));
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  z-index: 0;
+}
+
+/* Since inset shadows don't play nice with images, we'll create a pseudo element and apply our image styling to that instead */
+#scroller .item:before {
+  border-radius: 10px;
+  width: 500px;
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 0 0 1px rgba(0,0,0,0.4);
+}
+
+#scroller .item img {
+  display: block;
+  border-radius: 10px;
+}
+
+#scroller .left {
+  -webkit-transform: rotateY(25deg) translateX(-320px) skewY(-5deg) scale(0.4, 0.6);
+  -moz-transform: rotateY(25deg) translateX(-320px) skewY(-5deg) scale(0.4, 0.6);
+  -o-transform: rotateY(25deg) translateX(-320px) skewY(-5deg) scale(0.4, 0.6);
+}
+
+#scroller .middle {
+  z-index:1;
+  -webkit-transform: rotateY(0deg) translateX(0) scale(1);
+  -moz-transform: rotateY(0deg) translateX(0) scale(1);
+  -o-transform: rotateY(0deg) translateX(0) scale(1);
+}
+
+#scroller .right {
+  -webkit-transform: rotateY(-25deg) translateX(320px) skewY(5deg) scale(0.4, 0.6);
+  -moz-transform: rotateY(-25deg) translateX(320px) skewY(5deg) scale(0.4, 0.6);
+  -o-transform: rotateY(-25deg) translateX(320px) skewY(5deg) scale(0.4, 0.6);
+}
+
+#scroller .left-hidden {
+  opacity: 0;
+  z-index: -1;
+  -webkit-transform: rotateY(25deg) translateX(-430px) skewY(-5deg) scale(0.3, 0.5);
+  -moz-transform: rotateY(25deg) translateX(-430px) skewY(-5deg) scale(0.3, 0.5);
+  -o-transform: rotateY(25deg) translateX(-430px) skewY(-5deg) scale(0.3, 0.5);
+}
+
+#scroller .right-hidden {
+  opacity: 0;
+  z-index: -1;
+  -webkit-transform: rotateY(-25deg) translateX(430px) skewY(5deg) scale(0.3, 0.5);
+  -moz-transform: rotateY(-25deg) translateX(430px) skewY(5deg) scale(0.3, 0.5);
+  -o-transform: rotateY(-25deg) translateX(430px) skewY(5deg) scale(0.3, 0.5);
+}
+
+.navcar {
+  position: absolute;
+  width: 500px;
+  height: 30px;
+  margin: 170px 0 0;
+  z-index: 2;
+  display: none;
+}
+
+.prev, .next {
+  position: absolute;
+  display: block;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(0,0,0,0.85);
+  border-radius:15px;
+  color: #E4E4E4;
+  bottom: 15px;
+  left: 15px;
+  text-align: center;
+  line-height: 26px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 0 0 1px rgba(0,0,0,0.7);
+}
+
+.next {
+  left: inherit;
+  right: 15px;
+}
+
+.prev:hover, .next:hover {
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5), 0 0 0 1px rgba(0,0,0,0.7);
+}
+
+#content, h2, p {
+  font-family: 'Montserrat', cursive;
+  color: #f5f5f5;
+}
+
+#push-to-bottom {
+    color: black;
+    text-shadow: white 1px 1px 1px !important;
+    /*position: inherit;*/
+
+    /*left: 50%;
+    margin-left: -100px;*/
+    padding-bottom: 20px !important;
+  }
+
+.cfa {
+  visibility: hidden;
+}
+
+.fadeIn {
+  -webkit-animation: animat_show 0.8s;
+  animation: animat_show 0.8s;
+  visibility: visible !important;
+}
+
+@-webkit-keyframes animat_show {
+  0%{opacity:0}
+  100%{opacity:1}
+}
+
+}
+
+</style>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Logo</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="artist.html">NAV 1</a></li>
+          <li><a href="merchandise.html">NAV 2</a></li>
+          <li><a href="blog.html">NAV 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <p class="warning">Only works 100% in Chrome.</p>
+  <div id="scroller">
+    <div class="navcar">
+      <a class="prev">&laquo;</a>
+      <a class="next">&raquo;</a>
+    </div>
+    <a class="item" href="#"><img src="music-1106439_1280_test.jpg" /></a>
+    <a class="item" href="#"><img src="french-horn-1566587_1280_test.jpg" /></a>
+    <a class="item" href="#"><img src="concert-336695_1280_test.jpg" /></a>
+    <a class="item" href="#"><img src="audio-interface-1561567_1280_test.jpg" /></a>
+    <a class="item" href="#"><img src="music-1012475_1280_test.jpg" /></a>
+    <a class="item" href="#"><img src="rock-1560869_1280_test.jpg" /></a>
+    <a class="item" href="#"><img src="party-1540719_1280_test.jpg" /></a>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <hr>
+
+  <h1 class="text-center" id="content">Content and Feature Artist</h1>
+
+  <div class="container">
+
+    <h2 class="text-center">6-4-3 grid<p class="lead text-center">6 columns on desktop, 4 columns on tablets, 3 columns on phones</p></h2>
+    <div class="row">
+      <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+       <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+       <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+       <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+       <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+       <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+       <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+       <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+      <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+      <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+      <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+      <div class="cfa col-lg-2 col-sm-3 col-xs-4">
+          <a href="#">
+               <img src="http://placehold.it/200x200" class="thumbnail img-responsive">
+          </a>
+      </div>
+    </div>
+    <hr>
+    <br><br>
+
+  <p class="text-center" id="push-to-bottom">Contact / Label information &copy;</p>
+
+
+
+
+<script>
+  /* Create an array to hold the different image positions */
+  var itemPositions = [];
+  var numberOfItems = $('#scroller .item').length;
+
+  /* Assign each array element a CSS class based on its initial position */
+  function assignPositions() {
+      for (var i = 0; i < numberOfItems; i++) {
+          if (i === 0) {
+              itemPositions[i] = 'left-hidden';
+          } else if (i === 1) {
+              itemPositions[i] = 'left';
+          } else if (i === 2) {
+              itemPositions[i] = 'middle';
+          } else if (i === 3) {
+              itemPositions[i] = 'right';
+          } else {
+              itemPositions[i] = 'right-hidden';
+          }
+      }
+      /* Add each class to the corresponding element */
+      $('#scroller .item').each(function(index) {
+          $(this).addClass(itemPositions[index]);
+      });
+  }
+
+  /* To scroll, we shift the array values by one place and reapply the classes to the images */
+  function scroll(direction) {
+      if (direction === 'prev') {
+          itemPositions.push(itemPositions.shift());
+      } else if (direction === 'next') {
+          itemPositions.unshift(itemPositions.pop());
+      }
+      $('#scroller .item').removeClass('left-hidden left middle right right-hidden').each(function(index) {
+          $(this).addClass(itemPositions[index]);
+      });
+  }
+
+  /* Do all this when the DOMs ready */
+  $(document).ready(function() {
+
+      assignPositions();
+      var autoScroll = window.setInterval("scroll('next')", 4000);
+
+      /* Hover behaviours */
+      $('#scroller').hover(function() {
+          window.clearInterval(autoScroll);
+          $('.navcar').stop(true, true).fadeIn(200);
+      }, function() {
+          autoScroll = window.setInterval("scroll('next')", 4000);
+          $('.navcar').stop(true, true).fadeOut(200);
+      });
+
+      /* Click behaviours */
+      $('.prev').click(function() {
+          scroll('prev');
+      });
+      $('.next').click(function() {
+          scroll('next');
+      });
+
+      /* Fade in artist section by row */
+      function showImages(el) {
+              var windowHeight = jQuery( window ).height();
+              $(el).each(function(){
+                  var thisPos = $(this).offset().top;
+
+                  var topOfWindow = $(window).scrollTop();
+                  if (topOfWindow + windowHeight - 200 > thisPos ) {
+                      $(this).addClass("fadeIn");
+                  }
+              });
+          }
+
+          // if the image in the window of browser when the page is loaded, show that image
+          $(document).ready(function(){
+                  showImages('.cfa');
+          });
+
+          // if the image in the window of browser when scrolling the page, show that image
+          $(window).scroll(function() {
+                  showImages('.cfa');
+          });
+
+  });
+</script>
+
+</body>
+
+</html>
